@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LlB-dn-9b6">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Page Control-->
+        <scene sceneID="xsf-Gk-1oR">
+            <objects>
+                <viewController title="Page Control" id="LlB-dn-9b6" customClass="ViewController" customModule="PageControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g4c-S5-3jv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-2a-JHE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="776"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="C4C-7W-rUP">
+                                    <size key="itemSize" width="330" height="515"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="OH0-Mt-zbV">
+                                        <rect key="frame" x="0.0" y="130.5" width="330" height="515"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="515"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.1450980392" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="LlB-dn-9b6" id="wfk-u9-TmX"/>
+                                    <outlet property="delegate" destination="LlB-dn-9b6" id="max-gy-Wnd"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yzw-O4-Btx">
+                                <rect key="frame" x="187.5" y="805" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.04830961332" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="LlB-dn-9b6" eventType="valueChanged" id="MDm-WS-hX6"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yzw-O4-Btx" firstAttribute="centerX" secondItem="g4c-S5-3jv" secondAttribute="centerX" id="DmK-U1-JuE"/>
+                            <constraint firstItem="cV3-2a-JHE" firstAttribute="leading" secondItem="Eyx-Bq-xGw" secondAttribute="leading" id="Ew4-LI-mbp"/>
+                            <constraint firstItem="cV3-2a-JHE" firstAttribute="trailing" secondItem="Eyx-Bq-xGw" secondAttribute="trailing" id="fVU-BA-yQl"/>
+                            <constraint firstItem="Eyx-Bq-xGw" firstAttribute="bottom" secondItem="cV3-2a-JHE" secondAttribute="bottom" constant="86" id="l06-1P-vg2"/>
+                            <constraint firstItem="yzw-O4-Btx" firstAttribute="centerX" secondItem="g4c-S5-3jv" secondAttribute="centerX" id="lc7-so-1hM"/>
+                            <constraint firstItem="Eyx-Bq-xGw" firstAttribute="bottom" secondItem="yzw-O4-Btx" secondAttribute="bottom" constant="20" id="nlu-nf-OP9"/>
+                            <constraint firstItem="cV3-2a-JHE" firstAttribute="top" secondItem="g4c-S5-3jv" secondAttribute="top" id="wFk-Am-cyx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Eyx-Bq-xGw"/>
+                    </view>
+                    <connections>
+                        <outlet property="listCollectionView" destination="cV3-2a-JHE" id="tec-c7-GTC"/>
+                        <outlet property="pager" destination="yzw-O4-Btx" id="RYI-uD-Hp8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7M-Az-PT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65" y="810"/>
+        </scene>
+    </scenes>
+</document>
